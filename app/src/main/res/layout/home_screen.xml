@@ -4,15 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:theme="@style/Theme.Fiddle">
 
-    <TextView
+    <ImageView
+        android:id="@+id/flower_background"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="335dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flower_green" />
+
+    <ImageView
+        android:id="@+id/circle_background"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19"
+        app:srcCompat="@drawable/three_circle_pink" />
+
+    <ImageView
+        android:id="@+id/logo_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_green" />
+
+    <TextView
+        android:id="@+id/main_title"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="170dp"
+        android:fontFamily="@font/simpler_pro_regular"
+        android:gravity="center"
+        android:text="@string/what_would_you_like_nto_fiddle_with_today"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/circle_background"
+        app:layout_constraintStart_toEndOf="@+id/flower_background"
+        app:layout_constraintTop_toBottomOf="@+id/logo_background" />
+
+    <TextView
+        android:id="@+id/subtite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/simpler_pro_light"
+        android:gravity="center"
+        android:text="@string/swipe_your_choice"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_title" />
+
+    <TextView
+        android:id="@+id/swipe_right_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/simpler_pro_regular"
+        android:gravity="center"
+        android:text="@string/swipe_right_home"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/swipe_left_label" />
+
+    <TextView
+        android:id="@+id/swipe_left_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/simpler_pro_regular"
+        android:gravity="center"
+        android:text="@string/swipe_left_home"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flower_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

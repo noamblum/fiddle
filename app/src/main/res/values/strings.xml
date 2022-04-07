@@ -17,4 +17,8 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="task">Task</string>
+    <string name="what_would_you_like_nto_fiddle_with_today">What would you like\nto fiddle with today?</string>
+    <string name="swipe_your_choice">Swipe your choice</string>
+    <string name="swipe_right_home">Go to\nmy fids ></string>
+    <string name="swipe_left_home"><![CDATA[  Create\n< new fid]]></string>
 </resources>

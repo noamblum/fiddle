@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fid_creation);
+        setContentView(R.layout.home_screen);
 
         //Initialize GestureDetector
         this.swipeTouchListener = new OnSwipeTouchListener(MainActivity.this) {
             @Override
             public void onSwipeRight() {
-                Intent intent = new Intent(getBaseContext(), FidScrollingActivity.class);
+                Intent intent = new Intent(MainActivity.this, FidScrollingActivity.class);
                 startActivity(intent);
             }
 
