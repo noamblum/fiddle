@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fid_creation.FidCreationTypeFragment">
+
+    <Button
+        android:id="@+id/Next"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="nextStep"
+        android:text="@string/right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/Prev"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="prevStep"
+        android:text="@string/left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/LeftButton"
+        android:layout_width="103dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/add_fid_foreground"
+        android:onClick="setTypeVideo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/MidButton"
+        android:layout_width="103dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/add_fid_foreground"
+        android:onClick="setTypeArticle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/RightButton"
+        app:layout_constraintStart_toEndOf="@+id/LeftButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/RightButton"
+        android:layout_width="103dp"
+        android:layout_height="96dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/add_fid_foreground"
+        android:onClick="setTypeTask"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

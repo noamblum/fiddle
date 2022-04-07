@@ -1,8 +1,16 @@
 package com.mechonot.fiddle.scrolling;
 
+import com.mechonot.fiddle.FidCreationActivity;
+import com.mechonot.fiddle.fid.Fid;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,13 +19,13 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mechonot.fiddle.FidCreationActivity;
+import com.mechonot.fiddle.fid_creation.FidCreationActivity;
 import com.mechonot.fiddle.FidDbHandler;
 import com.mechonot.fiddle.R;
-import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
+import com.mechonot.fiddle.fid.FidFactory;
+import com.mechonot.fiddle.viewFidActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FidScrollingActivity extends AppCompatActivity {
@@ -71,7 +79,40 @@ public class FidScrollingActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FidCreationActivity.class);
         startActivity(intent);
     }
+    public void moveToRandomFid(View view){
+        Intent intent = new Intent(this, viewFidActivity.class);
+        startActivity(intent);
+    }
+    public void onButtonShowPopupWindowClick(View view) {
+        PopupWindow popupWindow = new PopupWindow();
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.popupwindow, null);
 
+        // create the popup window
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+//        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+//        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+//        final PopupWindow popupWindow = new PopupWindow(popupView, (int)(width *.8), (int)(height * .6), focusable);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+    }
     public void sortByPriority(View view){
         adapter.sort_by("priority");
         adapter.notifyDataSetChanged();
