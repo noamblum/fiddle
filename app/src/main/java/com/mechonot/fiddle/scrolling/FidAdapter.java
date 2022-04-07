@@ -90,7 +90,7 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
         @SuppressWarnings("ConstantConditions")
         public void setFieldsFromFid(Fid fid, String viewMode){
-            title.setText(fid.getBody());
+            title.setText(fid.getDescription());
             switch (viewMode) {
                 case "category":
                     textOnImage.setText("");
