@@ -1,8 +1,8 @@
 package com.mechonot.fiddle.fid;
 
 public class FidIdGenerator {
-    static long nextId = 0;
-    static long getNextId(){
+    static int nextId = 0;
+    static int getNextId(){
         return nextId++;
     }
 }

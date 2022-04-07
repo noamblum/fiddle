@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen);
+        setContentView(R.layout.activity_fid_creation);
 
         //Initialize GestureDetector
         this.swipeTouchListener = new OnSwipeTouchListener(MainActivity.this) {
