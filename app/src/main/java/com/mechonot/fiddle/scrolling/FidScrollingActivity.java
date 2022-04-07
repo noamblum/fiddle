@@ -11,13 +11,11 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mechonot.fiddle.FidCreationActivity;
+import com.mechonot.fiddle.fid_creation.FidCreationActivity;
 import com.mechonot.fiddle.FidDbHandler;
 import com.mechonot.fiddle.R;
-import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FidScrollingActivity extends AppCompatActivity {

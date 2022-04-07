@@ -1,4 +1,4 @@
-package com.mechonot.fiddle.fidCreation;
+package com.mechonot.fiddle.fid_creation;
 
 import android.os.Bundle;
 
