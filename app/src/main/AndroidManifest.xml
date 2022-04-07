@@ -15,6 +15,10 @@
             android:name=".FidCreationActivity"
             android:exported="false" />
         <activity
+            android:name=".viewFidActivity"
+            android:theme="@style/Theme.Fiddle.CustomTheme">
+            </activity>
+        <activity
             android:name=".scrolling.FidScrollingActivity"
             android:exported="true" >
         </activity>

@@ -1,8 +1,15 @@
 package com.mechonot.fiddle.scrolling;
 
+import com.mechonot.fiddle.fid.Fid;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +22,8 @@ import com.mechonot.fiddle.FidCreationActivity;
 import com.mechonot.fiddle.R;
 import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
+import com.mechonot.fiddle.fid.FidFactory;
+import com.mechonot.fiddle.viewFidActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,5 +80,59 @@ public class FidScrollingActivity extends AppCompatActivity {
     public void moveToCreateFidScreen(View view){
         Intent intent = new Intent(this, FidCreationActivity.class);
         startActivity(intent);
+    }
+    public void moveToRandomFid(View view){
+        Intent intent = new Intent(this, viewFidActivity.class);
+        startActivity(intent);
+    }
+    public void onButtonShowPopupWindowClick(View view) {
+        private void loadRandomFid(FidFactory.generateFid(), 10,  10) {
+
+            Fid tempFid = fid;
+
+
+            AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
+            LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+            View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
+                    (ViewGroup) findViewById(R.id.layout_root));
+            ImageView image = (ImageView) layout.findViewById(R.id.fullimage);
+            image.setImageDrawable(tempImageView.getDrawable());
+            imageDialog.setView(layout);
+            imageDialog.setPositiveButton(resources.getString(R.string.ok_button), new DialogInterface.OnClickListener(){
+
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+
+            });
+        PopupWindow popupWindow = new PopupWindow(FidFactory.generateFid());
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.popupwindow, null);
+
+        // create the popup window
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+//        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+//        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, (int)(width *.8), (int)(height * .6), focusable);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
     }
 }
