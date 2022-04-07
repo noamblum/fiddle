@@ -32,20 +32,6 @@ public class Fid {
         this.intervalsLeft = numOfRecurrences;
     }
 
-    public Fid(String id, String creationDate, String priority, String duration,
-               String fidType, String bodyType, String description,String body, String interval, String numOfRecurrences) {
-        this.id = Integer.parseInt(id);
-        this.creationDate = LocalDate.parse(creationDate);
-        this.priority = Integer.parseInt(priority);
-        this.duration = Integer.parseInt(duration);
-        this.fidType = FidType.valueOf(fidType);
-        this.bodyType = BodyType.valueOf(bodyType);
-        this.description = description;
-        this.body = body;
-        this.interval = Integer.parseInt(interval);
-        this.intervalsLeft = Integer.parseInt(numOfRecurrences);
-    }
-
     public Fid(LocalDate creationDate, int priority, int duration, FidType fidType,
                BodyType bodyType, String description, String body, int interval, int numOfRecurrences) {
         this.id = FidIdGenerator.getNextId();

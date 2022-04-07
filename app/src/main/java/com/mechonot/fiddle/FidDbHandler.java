@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.mechonot.fiddle.fid.Fid;
+import com.mechonot.fiddle.fid.FidFactory;
 import com.mechonot.fiddle.fid.FidType;
 import com.mechonot.fiddle.fid.BodyType;
 
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DBHandler extends SQLiteOpenHelper {
+public class FidDbHandler extends SQLiteOpenHelper {
 
     // creating a constant variables for our database.
     // below variable is for our database name.
@@ -50,7 +51,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     // creating a constructor for our database handler.
-    public DBHandler(Context context) {
+    public FidDbHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
@@ -141,44 +142,84 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-
-    public ArrayList<Fid> read_fids() {
-        // on below line we are creating a
-        // database for reading our database.
+    public int get_max_id(){
         SQLiteDatabase db = this.getReadableDatabase();
-
-        // on below line we are creating a cursor with query to read data from database.
-        Cursor cursor_fids = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-
-        // on below line we are creating a new array list.
-        ArrayList<Fid> fids = new ArrayList<>();
-
-
-        // moving our cursor to first position.
-        if (cursor_fids.moveToFirst()) {
-            do {
-                // on below line we are adding the data from cursor to our array list.
-
-                fids.add(
-                        new Fid(cursor_fids.getString(0),
-                                cursor_fids.getString(1),
-                                cursor_fids.getString(2),
-                                cursor_fids.getString(3) ,
-                                cursor_fids.getString(4) ,
-                                cursor_fids.getString(5) ,
-                                cursor_fids.getString(6) ,
-                                cursor_fids.getString(7),
-                                cursor_fids.getString(8),
-                                cursor_fids.getString(9)
-                        ));
-            } while (cursor_fids.moveToNext());
-            // moving our cursor to next.
+        Cursor cursor_fids =db.query(TABLE_NAME,new String [] {"MAX(id)"},null,null,null,null,null);
+        if (cursor_fids.moveToFirst()){
+            return Integer.parseInt(cursor_fids.getString(0));
         }
-        // at last closing our cursor
-        // and returning our array list.
-        cursor_fids.close();
-        return fids;
+        else {
+            return 0;
+        }
+
     }
+
+    public void mark_fid_done(int fid_id){
+        ContentValues cv = new ContentValues();
+        cv.put("done", 1);
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(TABLE_NAME, cv, "id" + "= ?", new String[] {String.valueOf(fid_id)});
+    }
+
+    public ArrayList<Fid> read_fids(FidType fidType){
+        return read_fids(fidType,true);
+    }
+
+    public ArrayList<Fid> read_fids(){
+        return read_fids(null,true);
+    }
+
+    public ArrayList<Fid> read_fids(FidType fidType, boolean only_not_done){
+    // on below line we are creating a
+    // database for reading our database.
+    SQLiteDatabase db = this.getReadableDatabase();
+
+    String query = "SELECT * FROM " + TABLE_NAME;
+    if (only_not_done == true){
+        if(fidType == null){
+            query += " WHERE done = 0";
+        }
+        else {
+            query = query + " WHERE done = 0 and fid_type='" + fidType.name()+"'";
+        }
+    }
+    else{
+        if(fidType != null){
+            query =  query + " WHERE fid_type='" + fidType.name()+"'";
+        }
+    }
+
+    // on below line we are creating a cursor with query to read data from database.
+    Cursor cursor_fids = db.rawQuery(query,null);
+    // on below line we are creating a new array list.
+    ArrayList<Fid> fids = new ArrayList<>();
+
+
+    // moving our cursor to first position.
+    if (cursor_fids.moveToFirst()) {
+        do {
+            // on below line we are adding the data from cursor to our array list.
+
+            fids.add(
+                    FidFactory.createFidFromDb(cursor_fids.getString(0),
+                            cursor_fids.getString(1),
+                            cursor_fids.getString(2),
+                            cursor_fids.getString(3) ,
+                            cursor_fids.getString(4) ,
+                            cursor_fids.getString(5) ,
+                            cursor_fids.getString(6) ,
+                            cursor_fids.getString(7),
+                            cursor_fids.getString(8),
+                            cursor_fids.getString(9)
+                    ));
+        } while (cursor_fids.moveToNext());
+        // moving our cursor to next.
+    }
+    // at last closing our cursor
+    // and returning our array list.
+    cursor_fids.close();
+    return fids;
+}
 
 
 
