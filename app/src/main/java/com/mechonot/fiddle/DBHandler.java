@@ -181,6 +181,19 @@ public class DBHandler extends SQLiteOpenHelper {
         return fids;
     }
 
+    public int get_max_id(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor_fids =db.query(TABLE_NAME,new String [] {"MAX(id)"},null,null,null,null,null);
+//        Cursor cursor_fids = db.rawQuery("SELECT MAX('id') as id FROM " + TABLE_NAME, null);
+        if (cursor_fids.moveToFirst()){
+            return Integer.parseInt(cursor_fids.getString(0));
+        }
+        else {
+            return 0;
+        }
+
+    }
+
 
 
     @Override

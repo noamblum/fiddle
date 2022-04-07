@@ -35,10 +35,13 @@ public class DatabaseTester {
     public void database_creation() {
 //        Fid fid = new Fid(LocalDate.now(),1,2, FidType.Article, BodyType.TEXT,"desc","body",2,5);
 //        db_handler.add_new_fid(fid);
-        Fid fid2 = new Fid(1, LocalDate.now(),1,2, FidType.Article, BodyType.TEXT,"desc","body",2,5);
+        Fid fid2 = new Fid(LocalDate.now(),1,2, FidType.Article, BodyType.TEXT,
+                "desc","body",2,5);
         db_handler.add_new_fid(fid2);
-//        Fid fid3 = new Fid(2, LocalDate.now(),1,2, FidType.Article, BodyType.TEXT,"test",2,5);
-//        db_handler.add_new_fid(fid3);
+        Fid fid3 = new Fid(LocalDate.now(),1,2, FidType.Article,
+                BodyType.TEXT,"desc","body",2,5);
+        db_handler.add_new_fid(fid3);
         System.out.print(db_handler.read_fids());
+        db_handler.get_max_id();
     }
 }
