@@ -2,9 +2,17 @@ package com.mechonot.fiddle;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.mechonot.fiddle.fid.Fid;
+import com.mechonot.fiddle.fid.FidType;
+import com.mechonot.fiddle.fid.BodyType;
+
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -24,17 +32,19 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String DURATION_COL = "duration";
 
+    private static final String DESCRIPTION_COL = "description";
+
     private static final String BODY_COL = "body";
-
-    private static final String IS_LOCAL_COL = "is_local";
-
-    private static final String DEAD_LINE_COL = "dead_line";
 
     private static final String PRIORITY_COL = "priority";
 
     private static final String INTERVAL_COL = "interval";
 
-    private static final String NUM_INTERVALS_COL = "num_intervals";
+    private static final String NUM_RECURRENCES_COL = "num_of_recurrences";
+
+    private static final String FID_TYPE_COL = "fid_type";
+
+    private static final String BODY_TYPE_COL = "body_type";
 
     private static final String DONE_COL = "done";
 
@@ -51,16 +61,19 @@ public class DBHandler extends SQLiteOpenHelper {
         // an sqlite query and we are
         // setting our column names
         // along with their data types.
+
+
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + CREATION_DATE_COL + " TEXT,"
-                + DURATION_COL + " INTEGER,"
-                + BODY_COL + " TEXT,"
-                + IS_LOCAL_COL + " INTEGER,"
-                + DEAD_LINE_COL + " TEXT,"
                 + PRIORITY_COL + " INTEGER,"
+                + DURATION_COL + " INTEGER,"
+                + FID_TYPE_COL + " TEXT,"
+                + BODY_TYPE_COL + " TEXT,"
+                + DESCRIPTION_COL + " TEXT,"
+                + BODY_COL + " TEXT,"
                 + INTERVAL_COL + " INTEGER,"
-                + NUM_INTERVALS_COL + " INTEGER,"
+                + NUM_RECURRENCES_COL + " INTEGER,"
                 + DONE_COL + " INTEGER)";
 
         // at last we are calling a exec sql
@@ -68,16 +81,31 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
+    public void add_new_fid(Fid f){
+        this.add_new_fid(
+                f.getId(),
+                f.getCreationDate().toString(),
+                f.getDuration(),
+                f.getDescription(),
+                f.getBody(),
+                f.getPriority(),
+                f.getInterval(),
+                f.getIntervalLeft(),
+                f.getFidType().toString(),
+                f.getBodyType().toString());
+    }
+
     // this method is use to add new course to our sqlite database.
     public void add_new_fid(Integer id,
                              String create_date,
                              Integer duration,
+                             String description,
                              String body,
-                             Integer is_local,
-                             String dead_line,
                              Integer priority_col,
                              Integer interval,
-                             Integer num_intervals) {
+                             Integer interval_left,
+                            String fid_type,
+                            String body_type) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
@@ -90,15 +118,18 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // on below line we are passing all values
         // along with its key and value pair.
+
+
         values.put(ID_COL, id);
         values.put(CREATION_DATE_COL, create_date);
         values.put(DURATION_COL, duration);
+        values.put(DESCRIPTION_COL, description);
         values.put(BODY_COL, body);
-        values.put(IS_LOCAL_COL, is_local);
-        values.put(DEAD_LINE_COL, dead_line);
         values.put(PRIORITY_COL, priority_col);
         values.put(INTERVAL_COL, interval);
-        values.put(NUM_INTERVALS_COL, num_intervals);
+        values.put(NUM_RECURRENCES_COL, interval_left);
+        values.put(FID_TYPE_COL, fid_type);
+        values.put(BODY_TYPE_COL, body_type);
         values.put(DONE_COL, 0);
 
         // after adding all values we are passing
@@ -109,6 +140,47 @@ public class DBHandler extends SQLiteOpenHelper {
         // database after adding database.
         db.close();
     }
+
+
+    public ArrayList<Fid> read_fids() {
+        // on below line we are creating a
+        // database for reading our database.
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // on below line we are creating a cursor with query to read data from database.
+        Cursor cursor_fids = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        // on below line we are creating a new array list.
+        ArrayList<Fid> fids = new ArrayList<>();
+
+
+        // moving our cursor to first position.
+        if (cursor_fids.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+
+                fids.add(
+                        new Fid(cursor_fids.getString(0),
+                                cursor_fids.getString(1),
+                                cursor_fids.getString(2),
+                                cursor_fids.getString(3) ,
+                                cursor_fids.getString(4) ,
+                                cursor_fids.getString(5) ,
+                                cursor_fids.getString(6) ,
+                                cursor_fids.getString(7),
+                                cursor_fids.getString(8),
+                                cursor_fids.getString(9)
+                        ));
+            } while (cursor_fids.moveToNext());
+            // moving our cursor to next.
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursor_fids.close();
+        return fids;
+    }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
