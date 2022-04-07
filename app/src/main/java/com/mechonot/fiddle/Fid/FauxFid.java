@@ -2,8 +2,6 @@ package com.mechonot.fiddle.Fid;
 
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
-
 import java.time.LocalDate;
 import java.util.Random;
 
@@ -15,7 +13,6 @@ public class FauxFid extends Fid {
             "https://www.example.com/"
     };
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public FauxFid() {
         super(0L, LocalDate.now(), LocalDate.now(), r.nextInt(3) + 1,
                 r.nextInt(100) + 1,
