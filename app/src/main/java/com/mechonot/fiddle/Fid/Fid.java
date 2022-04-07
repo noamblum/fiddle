@@ -56,4 +56,7 @@ public class Fid {
         return fid_type;
     }
 
+    public Fid done(){
+        return null;
+    }
 }
