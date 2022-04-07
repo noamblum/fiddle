@@ -8,13 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.mechonot.fiddle.fid.Fid;
 import com.mechonot.fiddle.fid.FidFactory;
+import com.mechonot.fiddle.fid.FidIdGenerator;
 import com.mechonot.fiddle.fid.FidType;
-import com.mechonot.fiddle.fid.BodyType;
 
-import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class FidDbHandler extends SQLiteOpenHelper {
 
@@ -53,6 +50,8 @@ public class FidDbHandler extends SQLiteOpenHelper {
     // creating a constructor for our database handler.
     public FidDbHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        FidIdGenerator.init_next(getMaxId());
+
     }
 
     // below method is for creating a database by running a sqlite query
@@ -82,8 +81,8 @@ public class FidDbHandler extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public void add_new_fid(Fid f){
-        this.add_new_fid(
+    public void addNewFid(Fid f){
+        this.addNewFid(
                 f.getId(),
                 f.getCreationDate().toString(),
                 f.getDuration(),
@@ -97,14 +96,14 @@ public class FidDbHandler extends SQLiteOpenHelper {
     }
 
     // this method is use to add new course to our sqlite database.
-    public void add_new_fid(Integer id,
-                             String create_date,
-                             Integer duration,
-                             String description,
-                             String body,
-                             Integer priority_col,
-                             Integer interval,
-                             Integer interval_left,
+    public void addNewFid(Integer id,
+                            String create_date,
+                            Integer duration,
+                            String description,
+                            String body,
+                            Integer priority_col,
+                            Integer interval,
+                            Integer interval_left,
                             String fid_type,
                             String body_type) {
 
@@ -142,10 +141,10 @@ public class FidDbHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public int get_max_id(){
+    public int getMaxId(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor_fids =db.query(TABLE_NAME,new String [] {"MAX(id)"},null,null,null,null,null);
-        if (cursor_fids.moveToFirst()){
+        if (cursor_fids.moveToFirst() && cursor_fids.getString(0) != null){
             return Integer.parseInt(cursor_fids.getString(0));
         }
         else {
@@ -154,7 +153,7 @@ public class FidDbHandler extends SQLiteOpenHelper {
 
     }
 
-    public void mark_fid_done(int fid_id){
+    public void markFidDone(int fid_id){
         ContentValues cv = new ContentValues();
         cv.put("done", 1);
         SQLiteDatabase db = this.getWritableDatabase();
