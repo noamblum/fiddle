@@ -3,21 +3,17 @@ package com.mechonot.fiddle.fid;
 import java.time.LocalDate;
 
 public class FidFactory {
-
-    static Fid recreateFid(Long id, LocalDate creationDate, LocalDate deadline, int priority,
-                           int duration, FidType fidType, BodyType bodyType, String body, int interval,
-                           int numOfRecurrences) {
-        return new Fid(id, creationDate, deadline, priority, duration, fidType, bodyType, body, interval, numOfRecurrences);
-    }
-
-    static Fid createRecurringFid(LocalDate creationDate, LocalDate deadline, int priority,
-                                  int duration, FidType fidType, BodyType bodyType, String body, int interval,
-                                  int numOfRecurrences) {
-        return new Fid(creationDate, deadline, priority, duration, fidType, bodyType, body, interval, numOfRecurrences);
-    }
-
-    static Fid createFid(LocalDate creationDate, LocalDate deadline, int priority,
-                         int duration, FidType fidType, BodyType bodyType, String body) {
-        return new Fid(creationDate, deadline, priority, duration, fidType, bodyType, body, 0, 1);
+    public static Fid createFidFromDb(String id, String creationDate, String priority, String duration,
+               String fidType, String bodyType, String description,String body, String interval, String numOfRecurrences) {
+        return new Fid(Integer.parseInt(id),
+                LocalDate.parse(creationDate),
+                Integer.parseInt(priority),
+                Integer.parseInt(duration),
+                FidType.valueOf(fidType),
+                BodyType.valueOf(bodyType),
+                description,
+                body,
+                Integer.parseInt(interval),
+                Integer.parseInt(numOfRecurrences));
     }
 }
