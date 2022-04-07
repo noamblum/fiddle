@@ -42,6 +42,7 @@ public class DatabaseTester {
                 BodyType.TEXT,"desc","body",2,5);
         db_handler.add_new_fid(fid3);
         System.out.print(db_handler.read_fids());
-        db_handler.get_max_id();
+        db_handler.mark_done(0);
+        System.out.print(db_handler.read_fids());
     }
 }
