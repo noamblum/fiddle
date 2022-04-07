@@ -36,6 +36,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String NUM_INTERVALS_COL = "num_intervals";
 
+    private static final String DONE_COL = "done";
+
 
     // creating a constructor for our database handler.
     public DBHandler(Context context) {
@@ -58,7 +60,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DEAD_LINE_COL + " TEXT,"
                 + PRIORITY_COL + " INTEGER,"
                 + INTERVAL_COL + " INTEGER,"
-                + NUM_INTERVALS_COL + " INTEGER)";
+                + NUM_INTERVALS_COL + " INTEGER,"
+                + DONE_COL + " INTEGER)";
 
         // at last we are calling a exec sql
         // method to execute above sql query
@@ -95,6 +98,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(DEAD_LINE_COL, dead_line);
         values.put(PRIORITY_COL, priority_col);
         values.put(NUM_INTERVALS_COL, num_intervals);
+        values.put(DONE_COL, 0);
 
         // after adding all values we are passing
         // content values to our table.
