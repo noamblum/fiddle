@@ -16,9 +16,9 @@ import java.util.List;
 
 public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
-    private List<FauxFid> items;
+    private List<Fid> items;
 
-    public FidAdapter(List<FauxFid> items) {
+    public FidAdapter(List<Fid> items) {
         this.items = items;
     }
 
