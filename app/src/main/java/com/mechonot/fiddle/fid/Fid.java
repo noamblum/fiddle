@@ -8,12 +8,12 @@ import java.time.LocalDate;
 
 public class Fid {
     private final LocalDate creationDate;
-    private final int priority;//[1,3]
-    private final int duration;
-    private final FidType fidType;
+    private int priority;//[1,3]
+    private int duration;
+    private FidType fidType;
     private final BodyType bodyType;
-    private final String description;
-    private final String body;
+    private String description;
+    private String body;
     private final int interval;
     private int intervalsLeft;
     protected int id;
@@ -47,7 +47,7 @@ public class Fid {
     }
 
     public Fid(LocalDate creationDate, int priority, int duration, FidType fidType,
-               BodyType bodyType,String description, String body, int interval, int numOfRecurrences) {
+               BodyType bodyType, String description, String body, int interval, int numOfRecurrences) {
         this.id = FidIdGenerator.getNextId();
         this.creationDate = creationDate;
         this.priority = priority;
@@ -99,6 +99,23 @@ public class Fid {
     public String getBody() {
         return body;
     }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    public void setFidType(FidType fidType) {
+        this.fidType = fidType;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setBody(String body) {
+        this.body = body;
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Fid done() {
