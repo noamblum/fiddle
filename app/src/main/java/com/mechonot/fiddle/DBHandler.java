@@ -69,7 +69,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // this method is use to add new course to our sqlite database.
-    public void addNewCourse(Integer id,
+    public void add_new_fid(Integer id,
                              String create_date,
                              Integer duration,
                              String body,
@@ -97,6 +97,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(IS_LOCAL_COL, is_local);
         values.put(DEAD_LINE_COL, dead_line);
         values.put(PRIORITY_COL, priority_col);
+        values.put(INTERVAL_COL, interval);
         values.put(NUM_INTERVALS_COL, num_intervals);
         values.put(DONE_COL, 0);
 
