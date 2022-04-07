@@ -17,6 +17,6 @@ public class FauxFid extends Fid {
         super(0L, LocalDate.now(), LocalDate.now(), r.nextInt(3) + 1,
                 r.nextInt(100) + 1,
                 FidType.values()[r.nextInt(FidType.values().length)],
-                RANDOM_BODIES[r.nextInt(RANDOM_BODIES.length)]);
+                RANDOM_BODIES[r.nextInt(RANDOM_BODIES.length)],0,1);
     }
 }

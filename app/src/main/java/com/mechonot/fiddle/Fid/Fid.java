@@ -1,6 +1,6 @@
 package com.mechonot.fiddle.Fid;
+
 import java.time.LocalDate;
-import java.util.Calendar;
 
 public class Fid {
     private final LocalDate creationDate;
@@ -10,7 +10,7 @@ public class Fid {
     private final String body;
     private final int interval;
     private int intervalsLeft;
-    protected Long id;
+    protected long id;
     protected LocalDate deadline;
 
     public Fid(Long id,
@@ -33,7 +33,7 @@ public class Fid {
         this.intervalsLeft = numOfRecurrences;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -45,20 +45,20 @@ public class Fid {
         return deadline;
     }
 
-    public Integer getPriority() {
+    public int getPriority() {
         return priority;
     }
 
-    public Integer getDuration() {
+    public int getDuration() {
         return duration;
+    }
+
+    public FidType getFidType() {
+        return fidType;
     }
 
     public String getBody() {
         return body;
-    }
-
-    public FidType getFidId() {
-        return fidType;
     }
 
     public Fid done() {

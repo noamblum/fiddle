@@ -36,7 +36,7 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
         holder.title.setText(fid.getBody());
         holder.time.setText(String.valueOf(fid.getDuration()));
-        holder.description.setText(fid.get_fid_time().toString());
+        holder.description.setText(fid.getFidType().toString());
     }
 
     @Override
