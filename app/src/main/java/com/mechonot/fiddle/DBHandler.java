@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.mechonot.fiddle.fid.Fid;
+import com.mechonot.fiddle.fid.FidFactory;
 import com.mechonot.fiddle.fid.FidType;
 import com.mechonot.fiddle.fid.BodyType;
 
@@ -160,7 +161,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 // on below line we are adding the data from cursor to our array list.
 
                 fids.add(
-                        new Fid(cursor_fids.getString(0),
+                        FidFactory.createFidFromDb(cursor_fids.getString(0),
                                 cursor_fids.getString(1),
                                 cursor_fids.getString(2),
                                 cursor_fids.getString(3) ,
