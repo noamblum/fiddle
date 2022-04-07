@@ -1,62 +1,70 @@
 package com.mechonot.fiddle.Fid;
 import java.time.LocalDate;
+import java.util.Calendar;
 
 public class Fid {
-    private Long id;
-    private LocalDate creation_date;
-    private LocalDate dead_line;
-    private Integer priority;//[1,3]
-    private Integer duration;
-    private FidType fid_type;
-    private String body;
+    private final LocalDate creationDate;
+    private final int priority;//[1,3]
+    private final int duration;
+    private final FidType fidType;
+    private final String body;
+    private final int interval;
+    private int intervalsLeft;
+    protected Long id;
+    protected LocalDate deadline;
 
     public Fid(Long id,
-               LocalDate creation_date,
-               LocalDate dead_line,
-               Integer priority,
-               Integer duration,
-               FidType fid_type,
-               String body){
+               LocalDate creationDate,
+               LocalDate deadline,
+               int priority,
+               int duration,
+               FidType fidType,
+               String body,
+               int interval,
+               int numOfRecurrences) {
         this.id = id;
-        this.creation_date = creation_date;
-        this.dead_line = dead_line;
+        this.creationDate = creationDate;
+        this.deadline = deadline;
         this.priority = priority;
         this.duration = duration;
-        this.fid_type = fid_type;
+        this.fidType = fidType;
         this.body = body;
+        this.interval = interval;
+        this.intervalsLeft = numOfRecurrences;
     }
 
-    public Long get_id() {
+    public Long getId() {
         return id;
     }
 
-    public LocalDate get_creation_date() {
-        return creation_date;
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
-    public LocalDate get_dead_line() {
-        return dead_line;
+    public LocalDate getDeadLine() {
+        return deadline;
     }
 
     public Integer getPriority() {
         return priority;
     }
 
-
     public Integer getDuration() {
         return duration;
     }
-
 
     public String getBody() {
         return body;
     }
 
-    public FidType get_fid_time(){
-        return fid_type;
+    public FidType getFidId() {
+        return fidType;
     }
 
-    public Fid done(){
-        return null;
+    public Fid done() {
+        if (--intervalsLeft == 0) return null;
+        deadline = deadline.plusDays(interval);
+        this.id = FidIdGenerator.getNextId();
+        return this;
     }
 }
