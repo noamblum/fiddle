@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     }
                     //detect right to left
                     else {
+//                        Intent intent = new Intent(this, FidScrollingActivity.class);
                         Toast.makeText(this, "Left is swiped", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "left swipe");
+//                        startActivity(intent);
                     }
 
 
