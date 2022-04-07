@@ -10,6 +10,22 @@ public class Fid {
     private FidType fid_type;
     private String body;
 
+    public Fid(Long id,
+               LocalDate creation_date,
+               LocalDate dead_line,
+               Integer priority,
+               Integer duration,
+               FidType fid_type,
+               String body){
+        this.id = id;
+        this.creation_date = creation_date;
+        this.dead_line = dead_line;
+        this.priority = priority;
+        this.duration = duration;
+        this.fid_type = fid_type;
+        this.body = body;
+    }
+
     public Long get_id() {
         return id;
     }
