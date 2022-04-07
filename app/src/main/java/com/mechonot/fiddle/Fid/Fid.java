@@ -13,16 +13,22 @@ public class Fid {
     protected long id;
     protected LocalDate deadline;
 
-    public Fid(Long id,
-               LocalDate creationDate,
-               LocalDate deadline,
-               int priority,
-               int duration,
-               FidType fidType,
-               String body,
-               int interval,
-               int numOfRecurrences) {
+    public Fid(Long id, LocalDate creationDate, LocalDate deadline, int priority, int duration,
+               FidType fidType, String body, int interval, int numOfRecurrences) {
         this.id = id;
+        this.creationDate = creationDate;
+        this.deadline = deadline;
+        this.priority = priority;
+        this.duration = duration;
+        this.fidType = fidType;
+        this.body = body;
+        this.interval = interval;
+        this.intervalsLeft = numOfRecurrences;
+    }
+
+    public Fid(LocalDate creationDate, LocalDate deadline, int priority, int duration,
+               FidType fidType, String body, int interval, int numOfRecurrences) {
+        this.id = FidIdGenerator.getNextId();
         this.creationDate = creationDate;
         this.deadline = deadline;
         this.priority = priority;
