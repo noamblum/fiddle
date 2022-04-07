@@ -1,13 +1,17 @@
 package com.mechonot.fiddle.scrolling;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
-import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.R;
+import com.mechonot.fiddle.fid.FauxFid;
+import com.mechonot.fiddle.fid.Fid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +31,38 @@ public class FidScrollingActivity extends AppCompatActivity {
         recycler.setLayoutManager(lManager);
 
         List<FauxFid> fidList = new ArrayList<>();
-        for (int ignored = 0; ignored < 10; ignored++){
+        for (int ignored = 0; ignored < 10; ignored++) {
             fidList.add(new FauxFid());
         }
         adapter = new FidAdapter(fidList);
         recycler.setAdapter(adapter);
+
+
+        ItemTouchHelper.SimpleCallback touchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                                  @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                Fid fid = adapter.getItemAtPosition(viewHolder.getAdapterPosition());
+                switch (direction) {
+                    case ItemTouchHelper.LEFT:
+                        Toast.makeText(getBaseContext(), fid.getFidType().toString(), Toast.LENGTH_SHORT).show();
+                        break;
+                    case ItemTouchHelper.RIGHT:
+                        Toast.makeText(getBaseContext(), fid.getBody(), Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchHelperCallback);
+        itemTouchHelper.attachToRecyclerView(recycler);
     }
 }
