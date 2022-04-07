@@ -71,4 +71,21 @@ public class FidScrollingActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FidCreationActivity.class);
         startActivity(intent);
     }
+
+    public void sortByPriority(View view){
+        adapter.sort_by("priority");
+        adapter.notifyDataSetChanged();
+
+    }
+
+    public void chooseCategories(View view){
+        Intent intent = new Intent(this, FidCreationActivity.class);
+        startActivity(intent);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sortByDuration(View view){
+        adapter.sort_by("duration");
+        adapter.notifyDataSetChanged();
+    }
 }

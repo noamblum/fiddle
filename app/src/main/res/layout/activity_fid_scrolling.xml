@@ -48,6 +48,61 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ImageButton
+        android:id="@+id/catButton"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:background="@drawable/top_scrolling_button_unchosen"
+        android:backgroundTint="#FDEADA"
+        android:elevation="10dp"
+        android:fontFamily="@font/simpler_pro_regular"
+        android:onClick="chooseCategories"
+        android:scaleType="fitCenter"
+        android:outlineSpotShadowColor="@color/black"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <ImageButton
+        android:id="@+id/priorButton"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:background="@null"
+        android:elevation="10dp"
+        android:onClick="sortByPriority"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064"
+        app:srcCompat="@drawable/top_scrolling_button_unchosen" />
+
+    <ImageButton
+        android:id="@+id/durationButton"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:background="@null"
+        android:contentDescription="@string/task"
+        android:elevation="10dp"
+        android:onClick="sortByDuration"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064"
+        app:srcCompat="@drawable/top_scrolling_button_unchosen" />
+
+    <ImageButton
         android:id="@+id/random_fid_button"
         android:layout_width="105dp"
         android:layout_height="79dp"

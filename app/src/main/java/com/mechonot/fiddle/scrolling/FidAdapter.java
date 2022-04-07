@@ -12,6 +12,7 @@ import com.mechonot.fiddle.R;
 import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
@@ -20,6 +21,15 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
     public FidAdapter(List<Fid> items) {
         this.items = items;
+    }
+
+    public void sort_by(String type){
+        if (type == "priority"){
+            items.sort(Comparator.comparingInt(Fid::getPriority));
+        }
+        if (type=="duration"){
+            items.sort(Comparator.comparingInt(Fid::getDuration));
+        }
     }
 
     @NonNull
