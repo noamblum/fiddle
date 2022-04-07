@@ -83,27 +83,7 @@ public class FidScrollingActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void onButtonShowPopupWindowClick(View view) {
-        private void loadRandomFid(FidFactory.generateFid(), 10,  10) {
-
-            Fid tempFid = fid;
-
-
-            AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
-            LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-
-            View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
-                    (ViewGroup) findViewById(R.id.layout_root));
-            ImageView image = (ImageView) layout.findViewById(R.id.fullimage);
-            image.setImageDrawable(tempImageView.getDrawable());
-            imageDialog.setView(layout);
-            imageDialog.setPositiveButton(resources.getString(R.string.ok_button), new DialogInterface.OnClickListener(){
-
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-
-            });
-        PopupWindow popupWindow = new PopupWindow(FidFactory.generateFid());
+        PopupWindow popupWindow = new PopupWindow();
         // inflate the layout of the popup window
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -117,7 +97,7 @@ public class FidScrollingActivity extends AppCompatActivity {
 //        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
 //        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, (int)(width *.8), (int)(height * .6), focusable);
+//        final PopupWindow popupWindow = new PopupWindow(popupView, (int)(width *.8), (int)(height * .6), focusable);
 
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
