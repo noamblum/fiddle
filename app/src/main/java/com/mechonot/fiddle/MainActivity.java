@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.Toast;
+import android.content.Intent;
+
+import com.mechonot.fiddle.scrolling.FidScrollingActivity;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener{
 
@@ -47,16 +50,21 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 //float valueY = y2 - y1;
 
                 if(Math.abs(valueX) > MIN_DISTANCE){
+
                     //detect left to right
                     if(x2 > x1){
+                        Intent intent = new Intent(this, FidScrollingActivity.class);
                         Toast.makeText(this, "Right is swiped", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "right swipe");
+                        startActivity(intent);
                     }
                     //detect right to left
                     else {
                         Toast.makeText(this, "Left is swiped", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "left swipe");
                     }
+
+
 
                 }
 
