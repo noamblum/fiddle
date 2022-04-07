@@ -1,4 +1,4 @@
-package com.mechonot.fiddle.Fid;
+package com.mechonot.fiddle.fid;
 
 public class FidIdGenerator {
     static long nextId = 0;

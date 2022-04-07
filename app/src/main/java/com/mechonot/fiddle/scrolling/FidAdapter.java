@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mechonot.fiddle.Fid.FauxFid;
-import com.mechonot.fiddle.Fid.Fid;
+import com.mechonot.fiddle.fid.FauxFid;
+import com.mechonot.fiddle.fid.Fid;
 import com.mechonot.fiddle.R;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
         holder.title.setText(fid.getBody());
         holder.time.setText(String.valueOf(fid.getDuration()));
-        holder.description.setText(fid.getFidType().toString());
+        holder.description.setText(fid.getBodyType().toString());
     }
 
     @Override

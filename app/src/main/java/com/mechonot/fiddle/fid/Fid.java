@@ -1,4 +1,4 @@
-package com.mechonot.fiddle.Fid;
+package com.mechonot.fiddle.fid;
 
 import java.time.LocalDate;
 
@@ -7,6 +7,7 @@ public class Fid {
     private final int priority;//[1,3]
     private final int duration;
     private final FidType fidType;
+    private final BodyType bodyType;
     private final String body;
     private final int interval;
     private int intervalsLeft;
@@ -14,26 +15,28 @@ public class Fid {
     protected LocalDate deadline;
 
     public Fid(Long id, LocalDate creationDate, LocalDate deadline, int priority, int duration,
-               FidType fidType, String body, int interval, int numOfRecurrences) {
+               FidType fidType, BodyType bodyType, String body, int interval, int numOfRecurrences) {
         this.id = id;
         this.creationDate = creationDate;
         this.deadline = deadline;
         this.priority = priority;
         this.duration = duration;
         this.fidType = fidType;
+        this.bodyType = bodyType;
         this.body = body;
         this.interval = interval;
         this.intervalsLeft = numOfRecurrences;
     }
 
-    public Fid(LocalDate creationDate, LocalDate deadline, int priority, int duration,
-               FidType fidType, String body, int interval, int numOfRecurrences) {
+    public Fid(LocalDate creationDate, LocalDate deadline, int priority, int duration, FidType fidType,
+               BodyType bodyType, String body, int interval, int numOfRecurrences) {
         this.id = FidIdGenerator.getNextId();
         this.creationDate = creationDate;
         this.deadline = deadline;
         this.priority = priority;
         this.duration = duration;
         this.fidType = fidType;
+        this.bodyType = bodyType;
         this.body = body;
         this.interval = interval;
         this.intervalsLeft = numOfRecurrences;
@@ -57,6 +60,10 @@ public class Fid {
 
     public int getDuration() {
         return duration;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
     }
 
     public FidType getFidType() {

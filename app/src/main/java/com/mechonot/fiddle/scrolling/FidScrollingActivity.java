@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.mechonot.fiddle.Fid.FauxFid;
+import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.R;
 
 import java.util.ArrayList;
