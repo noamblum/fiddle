@@ -13,4 +13,11 @@
         android:layout_alignParentStart="true"
         android:id="@+id/recycler_view"
         android:scrollbars="vertical" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_fid_foreground"
+        android:onClick="moveToCreateFidScreen" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

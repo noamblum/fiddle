@@ -1,6 +1,8 @@
 package com.mechonot.fiddle.scrolling;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mechonot.fiddle.FidCreationActivity;
 import com.mechonot.fiddle.R;
 import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
@@ -64,5 +67,9 @@ public class FidScrollingActivity extends AppCompatActivity {
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchHelperCallback);
         itemTouchHelper.attachToRecyclerView(recycler);
+    }
+    public void moveToCreateFidScreen(View view){
+        Intent intent = new Intent(this, FidCreationActivity.class);
+        startActivity(intent);
     }
 }
