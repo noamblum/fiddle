@@ -21,4 +21,9 @@
     <string name="swipe_your_choice">Swipe your choice</string>
     <string name="swipe_right_home">Go to\nmy fids ></string>
     <string name="swipe_left_home"><![CDATA[  Create\n< new fid]]></string>
+    <string name="right"><![CDATA[>]]></string>
+    <string name="left"><![CDATA[<]]></string>
+    <string name="fid_description">fid description…</string>
+    <string name="fid_body">fid_body…</string>
+    <string name="pop_up">pop up</string>
 </resources>

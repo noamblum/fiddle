@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FidCreationActivity"
+            android:name=".fid_creation.FidCreationActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity

@@ -201,7 +201,7 @@ public class FidDbHandler extends SQLiteOpenHelper {
             // on below line we are adding the data from cursor to our array list.
 
             fids.add(
-                    FidFactory.createFidFromDb(cursor_fids.getString(0),
+                    FidFactory.createFidFromDB(cursor_fids.getString(0),
                             cursor_fids.getString(1),
                             cursor_fids.getString(2),
                             cursor_fids.getString(3) ,

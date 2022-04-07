@@ -20,4 +20,8 @@
         <!-- Status bar color. -->
         <item name="android:windowBackground">?attr/colorPrimary</item>
     </style>
+    <style name="Theme.Fiddle.CustomTheme" >
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
 </resources>
