@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mechonot.fiddle.FidCreationActivity;
+import com.mechonot.fiddle.FidDbHandler;
 import com.mechonot.fiddle.R;
 import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
@@ -27,16 +28,14 @@ public class FidScrollingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fid_scrolling);
+        FidDbHandler fid_manager = new FidDbHandler(this);
 
         RecyclerView recycler = findViewById(R.id.recycler_view);
 
         lManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(lManager);
 
-        List<FauxFid> fidList = new ArrayList<>();
-        for (int ignored = 0; ignored < 10; ignored++) {
-            fidList.add(new FauxFid());
-        }
+        List<Fid> fidList = fid_manager.read_fids();
         adapter = new FidAdapter(fidList);
         recycler.setAdapter(adapter);
 
