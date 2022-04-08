@@ -2,12 +2,15 @@ package com.mechonot.fiddle.scrolling;
 
 import com.mechonot.fiddle.fid.Fid;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
@@ -29,6 +32,7 @@ import java.util.List;
 public class FidScrollingActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager lManager;
     private FidAdapter adapter;
+    private View currentyDisabledButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,9 @@ public class FidScrollingActivity extends AppCompatActivity {
         FidDbHandler fid_manager = new FidDbHandler(this);
 
         RecyclerView recycler = findViewById(R.id.recycler_view);
+        currentyDisabledButton = findViewById(R.id.catButton);
+        disableButton(currentyDisabledButton);
+
 
         lManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(lManager);
@@ -116,18 +123,45 @@ public class FidScrollingActivity extends AppCompatActivity {
         adapter.sort_by("priority");
         adapter.setViewMode("priority");
         adapter.notifyDataSetChanged();
+        handleButtonsChange(view);
 
+    }
+
+    private void handleButtonsChange(View view) {
+        disableButton(view);
+        enableButton(currentyDisabledButton);
+        currentyDisabledButton = view;
     }
 
     public void chooseCategories(View view){
         adapter.sort_by("categoty");
         adapter.setViewMode("category");
         adapter.notifyDataSetChanged();
+        handleButtonsChange(view);
     }
 
     public void sortByDuration(View view){
         adapter.sort_by("duration");
         adapter.setViewMode("duration");
         adapter.notifyDataSetChanged();
+        handleButtonsChange(view);
+    }
+
+    private void disableButton(View view) {
+        if (!(view instanceof Button)) return;
+        Button button = (Button) view;
+        button.setEnabled(false);
+        button.setBackgroundTintList(getBaseContext().getResources().getColorStateList(R.color.button_disabled));
+        button.setTextColor(Color.parseColor("#FAEBDC"));
+    }
+
+    private void enableButton(View view) {
+        if (!(view instanceof Button)) return;
+        Button button = (Button) view;
+        button.setEnabled(true);
+        button.setBackgroundTintList(getBaseContext().getResources().getColorStateList(R.color.button_enabled
+        ));
+
+        button.setTextColor(Color.parseColor("#171717"));
     }
 }
