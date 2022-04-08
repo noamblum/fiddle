@@ -1,6 +1,5 @@
 package com.mechonot.fiddle.scrolling;
 
-import com.mechonot.fiddle.FidCreationActivity;
 import com.mechonot.fiddle.fid.Fid;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
@@ -115,18 +113,20 @@ public class FidScrollingActivity extends AppCompatActivity {
     }
     public void sortByPriority(View view){
         adapter.sort_by("priority");
+        adapter.setViewMode("priority");
         adapter.notifyDataSetChanged();
 
     }
 
     public void chooseCategories(View view){
-        Intent intent = new Intent(this, FidCreationActivity.class);
-        startActivity(intent);
+        adapter.sort_by("categoty");
+        adapter.setViewMode("category");
         adapter.notifyDataSetChanged();
     }
 
     public void sortByDuration(View view){
         adapter.sort_by("duration");
+        adapter.setViewMode("duration");
         adapter.notifyDataSetChanged();
     }
 }

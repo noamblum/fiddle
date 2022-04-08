@@ -41,6 +41,9 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
         if (type=="duration"){
             items.sort(Comparator.comparingInt(Fid::getDuration));
         }
+        if (type=="category"){
+            items.sort(Comparator.comparing(Fid::getFidType));
+        }
     }
 
     @NonNull
