@@ -24,10 +24,13 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
     private String viewMode = "category";
 
+    private final OnFidClickListener listener;
+
     private List<Fid> items;
 
-    public FidAdapter(List<Fid> items) {
+    public FidAdapter(List<Fid> items, OnFidClickListener listener) {
         this.items = items;
+        this.listener = listener;
     }
 
     public void setViewMode(String viewMode){
@@ -57,8 +60,8 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull FidViewHolder holder, int position) {
         Fid fid = items.get(position);
-
         holder.setFieldsFromFid(fid, viewMode);
+        holder.bind(items.get(position), listener);
     }
 
     @Override
@@ -97,7 +100,14 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 //            body = v.findViewById(R.id.body);
             image = v.findViewById(R.id.corner_image);
             textOnImage = v.findViewById(R.id.over_image_text);
+        }
 
+        public void bind(final Fid fid, final OnFidClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(v, fid);
+                }
+            });
         }
 
         @SuppressWarnings("ConstantConditions")

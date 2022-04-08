@@ -42,7 +42,12 @@ public class FidScrollingActivity extends AppCompatActivity {
         recycler.setLayoutManager(lManager);
 
         List<Fid> fidList = fid_manager.read_fids();
-        adapter = new FidAdapter(fidList);
+        adapter = new FidAdapter(fidList, new OnFidClickListener() {
+            @Override
+            public void onItemClick(View view, Fid fid) {
+                Toast.makeText(getBaseContext(), fid.getDescription(), Toast.LENGTH_LONG).show();
+            }
+        });
         recycler.setAdapter(adapter);
 
 
