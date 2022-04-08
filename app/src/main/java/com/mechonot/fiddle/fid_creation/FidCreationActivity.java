@@ -3,13 +3,20 @@ package com.mechonot.fiddle.fid_creation;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
+import com.mechonot.fiddle.FidDbHandler;
+import com.mechonot.fiddle.MainActivity;
 import com.mechonot.fiddle.R;
+import com.mechonot.fiddle.SplashScreen;
 import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
+import com.mechonot.fiddle.fid.FidFactory;
 import com.mechonot.fiddle.fid.FidType;
+import com.mechonot.fiddle.scrolling.FidScrollingActivity;
 
 public class FidCreationActivity extends FragmentActivity {
     Fid fid;
@@ -20,13 +27,16 @@ public class FidCreationActivity extends FragmentActivity {
     FidCreationDurationFragment durationFragment;
     FidCreationTypeFragment typeFragment;
     FidCreationPriorityFragment priorityFragment;
+    FidCreationEndFragment endFragment;
+    FidDbHandler fidManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fid_creation);
+        fidManager = new FidDbHandler(this);
         fragmentManager = getSupportFragmentManager();
-        fid = new FauxFid();
+        fid = FidFactory.createEmptyFid();
         startPickingType();
     }
 
@@ -71,6 +81,24 @@ public class FidCreationActivity extends FragmentActivity {
         fid.setDuration(durationFragment.getDuration());
     }
 
+
+    private void finishCreation() {
+        endFragment = FidCreationEndFragment.newInstance();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, endFragment)
+                .addToBackStack(null)
+                .commit();
+        new Handler().postDelayed(() -> {
+            //This method will be executed once the timer is over
+            // Start your app main activity
+            Intent i = new Intent(FidCreationActivity.this, FidScrollingActivity.class);
+            startActivity(i);
+            // close this activity
+            finish();
+        }, 1000);
+        fidManager.addNewFid(fid);
+    }
+
     public void nextStep(View view) {
         switch (++stepNumber) {
             case 1: {
@@ -89,7 +117,7 @@ public class FidCreationActivity extends FragmentActivity {
                 break;
             }
             case 4: {
-                //nice
+                finishCreation();
                 break;
             }
         }

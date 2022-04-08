@@ -43,9 +43,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
         android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="100dp" />
 
     <ImageButton
         android:id="@+id/catButton"

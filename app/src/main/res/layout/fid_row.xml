@@ -3,11 +3,12 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/beige"
     card_view:cardCornerRadius="25dp"
-    card_view:cardElevation="10dp"
+    card_view:cardElevation="5dp"
+    android:minHeight="150dp"
     card_view:cardUseCompatPadding="true"
-    card_view:contentPadding="8dp"
-    card_view:cardBackgroundColor="@color/beige">
+    card_view:contentPadding="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,43 +20,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:textAlignment="textStart"
-            android:text="Lorem ipsum"
-            android:textColor="#171717"
             android:fontFamily="@font/simpler_pro_bold"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="Lorem ipsum"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#171717" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/body"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/title"-->
-<!--            android:text="A quite long message body"-->
-<!--            android:textAlignment="textStart"-->
-<!--            android:textAppearance="?android:attr/textAppearanceMedium"-->
-<!--            android:textColor="#171717" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/body"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@+id/title"-->
+        <!--            android:text="A quite long message body"-->
+        <!--            android:textAlignment="textStart"-->
+        <!--            android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--            android:textColor="#171717" />-->
         <FrameLayout
             android:id="@+id/image_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true">
+
             <ImageView
                 android:id="@+id/corner_image"
-                android:src="@drawable/empty_circle_pink"
-                android:scaleType="fitCenter"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_width="30dp"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/empty_circle_pink" />
 
             <TextView
                 android:id="@+id/over_image_text"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:autoSizeTextType="uniform"
+                android:fontFamily="@font/abc_favorit"
                 android:gravity="center"
+                android:paddingTop="5dp"
                 android:text="5"
                 android:textColor="#B380B7"
-                android:fontFamily="@font/abc_favorit"
-                android:paddingTop="5dp"
                 android:textStyle="bold" />
         </FrameLayout>
     </RelativeLayout>

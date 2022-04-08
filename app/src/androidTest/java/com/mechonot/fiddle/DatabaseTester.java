@@ -32,7 +32,7 @@ public class DatabaseTester {
     }
     @Test
     public void database_creation() {
-        FidIdGenerator.init_next(db_handler.get_max_id());
+        FidIdGenerator.init_next(db_handler.getMaxId());
 //        Fid fid = new Fid(LocalDate.now(),1,2, FidType.Article, BodyType.TEXT,"desc","body",2,5);
 //        db_handler.add_new_fid(fid);
 //        Fid fid2 = new Fid(LocalDate.now(),1,2, FidType.Article, BodyType.TEXT,
@@ -40,8 +40,8 @@ public class DatabaseTester {
 //        db_handler.add_new_fid(fid2);
         Fid fid3 = new Fid(LocalDate.now(),1,2, FidType.Task,
                 BodyType.TEXT,"desc","body",2,5);
-        db_handler.add_new_fid(fid3);
-        db_handler.mark_fid_done(fid3.getId());
+        db_handler.addNewFid(fid3);
+        db_handler.markFidDone(fid3.getId());
         System.out.print(db_handler.read_fids());
         System.out.print(db_handler.read_fids(FidType.Task));
     }

@@ -26,6 +26,9 @@
     <string name="fid_description">fid description…</string>
     <string name="fid_body">fid_body…</string>
     <string name="pop_up">pop up</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nice">Nice!</string>
     <string name="duration">Duration</string>
     <string name="priority">Priority</string>
     <string name="category">Category</string>

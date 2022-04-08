@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 
+import com.mechonot.fiddle.fid_creation.FidCreationActivity;
 import com.mechonot.fiddle.scrolling.FidScrollingActivity;
 import com.mechonot.fiddle.utils.OnSwipeTouchListener;
 
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void onSwipeLeft() {
-                super.onSwipeLeft();
+                Intent intent = new Intent(MainActivity.this, FidCreationActivity.class);
+                startActivity(intent);
             }
         };
     }
