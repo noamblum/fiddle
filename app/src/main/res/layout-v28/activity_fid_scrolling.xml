@@ -37,29 +37,74 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/three_circle_pink" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/new_fid_button"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toEndOf="@+id/random_fid_button"
-        app:srcCompat="@drawable/fiddle_black" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
         android:scrollbars="vertical"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/catButton"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#FDEADA"
+        android:elevation="10dp"
+        android:fontFamily="@font/simpler_pro_regular"
+        android:onClick="chooseCategories"
+        android:outlineSpotShadowColor="@color/black"
+        android:scaleType="fitCenter"
+        android:text="@string/category"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="100dp" />
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/priorButton"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#FDEADA"
+        android:elevation="10dp"
+        android:onClick="sortByPriority"
+        android:outlineSpotShadowColor="@color/black"
+        android:scaleType="fitCenter"
+        android:text="@string/priority"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/top_scrolling_button_unchosen" />
+
+    <Button
+        android:id="@+id/durationButton"
+        android:layout_width="105dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#FDEADA"
+        android:contentDescription="@string/task"
+        android:elevation="10dp"
+        android:onClick="sortByDuration"
+        android:outlineSpotShadowColor="@color/black"
+        android:scaleType="fitCenter"
+        android:text="@string/duration"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/top_scrolling_button_unchosen" />
 
     <ImageButton
         android:id="@+id/random_fid_button"
@@ -70,8 +115,6 @@
         android:onClick="moveToRandomFid"
         android:scaleType="fitCenter"
         android:elevation="10dp"
-        android:backgroundTint="#faebdc"
-
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,45 +139,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.957" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/durationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="sortByDuration"
-            android:text="@string/duration"
-            android:background="@drawable/buttoncolor"
-            android:enabled="true"
-            app:layout_constraintEnd_toStartOf="@+id/priorButton"
-            app:layout_constraintStart_toEndOf="@+id/catButton" />
-
-        <Button
-            android:id="@+id/priorButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="40dp"
-            android:onClick="sortByPriority"
-            android:text="@string/priority"
-            android:background="@drawable/buttoncolor"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
-            android:id="@+id/catButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="40dp"
-            android:onClick="chooseCategories"
-            android:text="@string/category"
-            android:background="@drawable/buttoncolor"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
