@@ -8,7 +8,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
@@ -111,5 +110,23 @@ public class FidScrollingActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    public void sortByPriority(View view){
+        adapter.sort_by("priority");
+        adapter.setViewMode("priority");
+        adapter.notifyDataSetChanged();
+
+    }
+
+    public void chooseCategories(View view){
+        adapter.sort_by("categoty");
+        adapter.setViewMode("category");
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sortByDuration(View view){
+        adapter.sort_by("duration");
+        adapter.setViewMode("duration");
+        adapter.notifyDataSetChanged();
     }
 }

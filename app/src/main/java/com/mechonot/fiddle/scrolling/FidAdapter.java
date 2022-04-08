@@ -14,9 +14,9 @@ import com.mechonot.fiddle.fid.BodyType;
 import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
 import com.mechonot.fiddle.fid.FidType;
-
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +32,18 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
 
     public void setViewMode(String viewMode){
         this.viewMode = viewMode;
+    }
+
+    public void sort_by(String type){
+        if (type == "priority"){
+            items.sort(Comparator.comparingInt(Fid::getPriority));
+        }
+        if (type=="duration"){
+            items.sort(Comparator.comparingInt(Fid::getDuration));
+        }
+        if (type=="category"){
+            items.sort(Comparator.comparing(Fid::getFidType));
+        }
     }
 
     @NonNull
