@@ -73,6 +73,11 @@ public class FidAdapter extends RecyclerView.Adapter<FidAdapter.FidViewHolder> {
         return items.get(i);
     }
 
+    public void removeItemAtPosition(int position) {
+        items.remove(position);
+        notifyItemRemoved(position);
+    }
+
     public static class FidViewHolder extends RecyclerView.ViewHolder {
 
         private static final Map<FidType, Integer> TYPE_IMAGE_MAP = new EnumMap<>(FidType.class);

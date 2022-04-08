@@ -51,7 +51,7 @@ public class FidScrollingActivity extends AppCompatActivity {
         recycler.setAdapter(adapter);
 
 
-        ItemTouchHelper.SimpleCallback touchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        ItemTouchHelper.SimpleCallback touchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
@@ -61,18 +61,18 @@ public class FidScrollingActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                Fid fid = adapter.getItemAtPosition(viewHolder.getAdapterPosition());
+                int position = viewHolder.getAdapterPosition();
+                Fid fid = adapter.getItemAtPosition(position);
                 switch (direction) {
-                    case ItemTouchHelper.LEFT:
-                        Toast.makeText(getBaseContext(), fid.getFidType().toString(), Toast.LENGTH_SHORT).show();
-                        break;
                     case ItemTouchHelper.RIGHT:
-                        Toast.makeText(getBaseContext(), fid.getBody(), Toast.LENGTH_SHORT).show();
+                        if (fid.done() == null)
+                            fid_manager.markFidDone(fid.getId());
+                        adapter.removeItemAtPosition(position);
                         break;
                     default:
                         break;
                 }
-                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                recycler.scrollToPosition(position);
             }
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchHelperCallback);
