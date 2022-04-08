@@ -111,8 +111,9 @@
             android:layout_height="match_parent"
             android:onClick="sortByDuration"
             android:text="@string/duration"
-            android:background="@drawable/buttoncolor"
             android:enabled="true"
+            android:textColor="#171717"
+            app:backgroundTint="#FAEBDC"
             app:layout_constraintEnd_toStartOf="@+id/priorButton"
             app:layout_constraintStart_toEndOf="@+id/catButton" />
 
@@ -123,7 +124,9 @@
             android:layout_marginEnd="40dp"
             android:onClick="sortByPriority"
             android:text="@string/priority"
-            android:background="@drawable/buttoncolor"
+            android:textColor="#171717"
+            app:backgroundTint="#FAEBDC"
+
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
@@ -133,7 +136,9 @@
             android:layout_marginStart="40dp"
             android:onClick="chooseCategories"
             android:text="@string/category"
-            android:background="@drawable/buttoncolor"
+            android:textColor="#171717"
+            app:backgroundTint="#FAEBDC"
+
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,6 +4,8 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.mechonot.fiddle.FidDbHandler;
+
 import java.time.LocalDate;
 
 public class Fid {
