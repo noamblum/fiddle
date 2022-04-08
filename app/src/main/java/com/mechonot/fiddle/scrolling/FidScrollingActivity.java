@@ -63,14 +63,10 @@ public class FidScrollingActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 Fid fid = adapter.getItemAtPosition(position);
-                switch (direction) {
-                    case ItemTouchHelper.RIGHT:
-                        if (fid.done() == null)
-                            fid_manager.markFidDone(fid.getId());
-                        adapter.removeItemAtPosition(position);
-                        break;
-                    default:
-                        break;
+                if (direction == ItemTouchHelper.RIGHT) {
+                    if (fid.done() == null)
+                        fid_manager.markFidDone(fid.getId());
+                    adapter.removeItemAtPosition(position);
                 }
                 recycler.scrollToPosition(position);
             }
