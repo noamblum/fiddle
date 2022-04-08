@@ -28,7 +28,13 @@
         <activity
             android:name=".fid_creation.FidCreationActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/*" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".scrolling.FidScrollingActivity"
             android:exported="true"

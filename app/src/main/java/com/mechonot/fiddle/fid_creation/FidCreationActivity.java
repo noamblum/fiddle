@@ -3,16 +3,14 @@ package com.mechonot.fiddle.fid_creation;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
 import com.mechonot.fiddle.FidDbHandler;
-import com.mechonot.fiddle.MainActivity;
 import com.mechonot.fiddle.R;
-import com.mechonot.fiddle.SplashScreen;
-import com.mechonot.fiddle.fid.FauxFid;
 import com.mechonot.fiddle.fid.Fid;
 import com.mechonot.fiddle.fid.FidFactory;
 import com.mechonot.fiddle.fid.FidType;
@@ -37,6 +35,19 @@ public class FidCreationActivity extends FragmentActivity {
         fidManager = new FidDbHandler(this);
         fragmentManager = getSupportFragmentManager();
         fid = FidFactory.createEmptyFid();
+        Intent intent = getIntent();
+        if (Intent.ACTION_SEND.equals(intent.getAction())) {
+            String url = intent.getStringExtra(Intent.EXTRA_TEXT);
+            fid.setBody(url);
+            if (url.contains("youtube") || url.contains("youtu.be")) {
+                fid.setDescription("Watch that video");
+                fid.setFidType(FidType.Video);
+            }
+            else {
+                fid.setDescription("Check out that link");
+                fid.setFidType(FidType.Article);
+            }
+        }
         startPickingType();
     }
 
