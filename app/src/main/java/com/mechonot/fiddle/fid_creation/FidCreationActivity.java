@@ -154,28 +154,34 @@ public class FidCreationActivity extends FragmentActivity {
         }
     }
 
-    public void setTypeVideo(View view){
+    public void setTypeVideo(View view) {
         fid.setFidType(FidType.Video);
+        nextStep(view);
     }
 
-    public void setTypeArticle(View view){
+    public void setTypeArticle(View view) {
         fid.setFidType(FidType.Article);
+        nextStep(view);
     }
 
-    public void setTypeTask(View view){
+    public void setTypeTask(View view) {
         fid.setFidType(FidType.Task);
+        nextStep(view);
     }
 
-    public void setPriority1(View view){
+    public void setPriority1(View view) {
         fid.setPriority(1);
+        nextStep(view);
     }
 
-    public void setPriority2(View view){
+    public void setPriority2(View view) {
         fid.setPriority(2);
+        nextStep(view);
     }
 
-    public void setPriority3(View view){
+    public void setPriority3(View view) {
         fid.setPriority(3);
+        nextStep(view);
     }
 
 }

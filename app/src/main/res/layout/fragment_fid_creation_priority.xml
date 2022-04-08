@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fid_creation.FidCreationPriorityFragment">
 
-    <Button
-        android:id="@+id/Next"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:onClick="nextStep"
-        android:text="@string/right"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/Next"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:onClick="nextStep"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/play_button_pink"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
-    <Button
+    <ImageButton
         android:id="@+id/Prev"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
         android:onClick="prevStep"
-        android:text="@string/left"
+        android:scaleType="fitXY"
+        android:src="@drawable/left_button_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/LeftButton"
-        android:layout_width="103dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="24dp"
-        android:src="@drawable/add_fid_foreground"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:background="@android:color/transparent"
         android:onClick="setPriority1"
+        android:scaleType="fitXY"
+        android:src="@drawable/circle_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/MidButton"
-        android:layout_width="103dp"
-        android:layout_height="96dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:src="@drawable/add_fid_foreground"
+        android:background="@android:color/transparent"
         android:onClick="setPriority2"
+        android:src="@drawable/two_circles_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/RightButton"
         app:layout_constraintStart_toEndOf="@+id/LeftButton"
@@ -55,13 +62,30 @@
 
     <ImageButton
         android:id="@+id/RightButton"
-        android:layout_width="103dp"
-        android:layout_height="96dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/add_fid_foreground"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="80dp"
+        android:background="@android:color/transparent"
         android:onClick="setPriority3"
+        android:scaleType="fitXY"
+        android:src="@drawable/three_circle_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/simpler_pro_bold"
+        android:gravity="center"
+        android:text="What priority would you attribute to your new fid?"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
