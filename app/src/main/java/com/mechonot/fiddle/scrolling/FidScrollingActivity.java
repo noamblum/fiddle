@@ -4,6 +4,7 @@ import com.mechonot.fiddle.fid.Fid;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -50,7 +51,11 @@ public class FidScrollingActivity extends AppCompatActivity {
         adapter = new FidAdapter(fidList, new OnFidClickListener() {
             @Override
             public void onItemClick(View view, Fid fid) {
-                Toast.makeText(getBaseContext(), fid.getDescription(), Toast.LENGTH_LONG).show();
+                if (fid.getBody()!=null){
+                    String url = fid.getBody().split("www.",2)[1];
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browserIntent);
+                }
             }
         });
         recycler.setAdapter(adapter);
