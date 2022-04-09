@@ -18,7 +18,6 @@ captures/
 .externalNativeBuild/
 .cxx/
 *.apk
-!Fiddle.apk
 output.json
 
 # IntelliJ
