@@ -37,29 +37,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/three_circle_pink" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/new_fid_button"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toEndOf="@+id/random_fid_button"
-        app:srcCompat="@drawable/fiddle_black" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="110dp"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="100dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout3" />
 
     <ImageButton
         android:id="@+id/random_fid_button"
@@ -98,6 +87,7 @@
         app:layout_constraintVertical_bias="0.957" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="5dp"
@@ -111,7 +101,6 @@
             android:layout_height="match_parent"
             android:onClick="sortByDuration"
             android:text="@string/duration"
-            android:enabled="true"
             android:textColor="#171717"
             app:backgroundTint="#FAEBDC"
             app:layout_constraintEnd_toStartOf="@+id/priorButton"
