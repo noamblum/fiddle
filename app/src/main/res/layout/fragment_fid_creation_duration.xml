@@ -19,6 +19,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/play_button_pink"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/navigation_button"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
@@ -31,6 +32,7 @@
         android:onClick="prevStep"
         android:scaleType="fitXY"
         android:src="@drawable/left_button_pink"
+        android:contentDescription="@string/navigation_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -38,21 +40,23 @@
         android:id="@+id/durationPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:theme="@style/DefaultNumberPickerTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />/>
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:scaleType="fitXY"
         android:src="@drawable/empty_circle_pink"
         app:layout_constraintBottom_toBottomOf="@+id/durationPicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/duration_frame"
         app:layout_constraintTop_toTopOf="@+id/durationPicker" />
 
     <TextView
@@ -64,8 +68,8 @@
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/simpler_pro_bold"
         android:gravity="center"
-        android:text="How much time would you attribute to your new fid?"
-        android:textSize="22sp"
+        android:text="@string/how_much_time_would_you_attribute_to_your_new_fid"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

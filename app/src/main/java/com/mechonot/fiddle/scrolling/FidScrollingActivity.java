@@ -23,8 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mechonot.fiddle.fid_creation.FidCreationActivity;
 import com.mechonot.fiddle.FidDbHandler;
 import com.mechonot.fiddle.R;
-import com.mechonot.fiddle.fid.Fid;
-import com.mechonot.fiddle.fid.FidFactory;
 import com.mechonot.fiddle.viewFidActivity;
 
 import java.util.List;

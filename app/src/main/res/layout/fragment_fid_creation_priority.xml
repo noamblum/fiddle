@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fid_creation.FidCreationPriorityFragment">
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/Next"-->
-<!--        android:layout_width="20dp"-->
-<!--        android:layout_height="20dp"-->
-<!--        android:layout_marginEnd="15dp"-->
-<!--        android:layout_marginBottom="15dp"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        android:onClick="nextStep"-->
-<!--        android:scaleType="fitXY"-->
-<!--        android:src="@drawable/play_button_pink"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
-
     <ImageButton
         android:id="@+id/Prev"
         android:layout_width="20dp"
@@ -30,6 +17,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/left_button_pink"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/navigation_button"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -43,6 +31,7 @@
         android:src="@drawable/circle_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/option_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -58,6 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/RightButton"
         app:layout_constraintStart_toEndOf="@+id/LeftButton"
+        android:contentDescription="@string/option_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -71,6 +61,7 @@
         android:src="@drawable/three_circle_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/option_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -82,8 +73,8 @@
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/simpler_pro_bold"
         android:gravity="center"
-        android:text="What priority would you attribute to your new fid?"
-        android:textSize="22sp"
+        android:text="@string/what_priority_would_you_attribute_to_your_new_fid"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

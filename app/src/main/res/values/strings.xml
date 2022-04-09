@@ -21,12 +21,20 @@
     <string name="swipe_your_choice">Swipe your choice</string>
     <string name="swipe_right_home">Go to\n> my fids</string>
     <string name="swipe_left_home"><![CDATA[  Create   \nnew fid <]]></string>
-    <string name="fid_description">fid description…</string>
-    <string name="fid_body">fid_body…</string>
     <string name="pop_up">pop up</string>
     <string name="nice">nice.</string>
     <string name="duration">Duration</string>
     <string name="priority">Priority</string>
     <string name="category">Category</string>
     <string name="background_image">background image</string>
+    <string name="enter_description_here">Enter description here…</string>
+    <string name="my_new_fid">My new fid…</string>
+    <string name="how_much_time_would_you_attribute_to_your_new_fid">How much time would you attribute to your new fid?</string>
+    <string name="what_category_would_you_attribute_to_your_new_fid">What category would you attribute to your new fid?</string>
+    <string name="what_priority_would_you_attribute_to_your_new_fid">What priority would you attribute to your new fid?</string>
+    <string name="navigation_button">navigation button</string>
+    <string name="duration_frame">number picker frame</string>
+    <string name="option_button">option button</string>
+    <string name="TestText">Lorem ipsum</string>
+    <string name="ExampleDuration">5</string>
 </resources>

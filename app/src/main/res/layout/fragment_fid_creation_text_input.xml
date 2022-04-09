@@ -9,18 +9,20 @@
 
     <EditText
         android:id="@+id/FidBody"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:ems="20"
         android:fontFamily="@font/simpler_pro_bold"
-        android:hint="Enter description here..."
-        android:textColorHint="#655851"
-        android:textColor="#171717"
+        android:hint="@string/enter_description_here"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textSize="22sp"
+        android:textColor="#171717"
+        android:textColorHint="#655851"
+        android:textSize="18sp"
         android:theme="@style/DefaultTextInputTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,18 +30,20 @@
 
     <EditText
         android:id="@+id/FidDescription"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:ems="20"
         android:fontFamily="@font/simpler_pro_bold"
-        android:hint="My new fid..."
-        android:textColorHint="#655851"
-        android:textColor="#171717"
+        android:hint="@string/my_new_fid"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textSize="22sp"
+        android:textColor="#171717"
+        android:textColorHint="#655851"
+        android:textSize="18sp"
         android:theme="@style/DefaultNumberPickerTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +60,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/play_button_pink"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/navigation_button"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
@@ -69,6 +74,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/left_button_pink"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/navigation_button"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

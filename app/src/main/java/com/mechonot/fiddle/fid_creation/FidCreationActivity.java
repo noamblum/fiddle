@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.view.View;
 
 import com.mechonot.fiddle.FidDbHandler;
+import com.mechonot.fiddle.MainActivity;
 import com.mechonot.fiddle.R;
 import com.mechonot.fiddle.fid.Fid;
 import com.mechonot.fiddle.fid.FidFactory;
@@ -151,6 +152,12 @@ public class FidCreationActivity extends FragmentActivity {
                 startPickingDuration();
                 break;
             }
+            default:{
+                Intent myIntent = new Intent(this, MainActivity.class);
+                startActivity(myIntent);
+                break;
+            }
+
         }
     }
 
@@ -184,4 +191,8 @@ public class FidCreationActivity extends FragmentActivity {
         nextStep(view);
     }
 
+    @Override
+    public void onBackPressed() {
+        prevStep(null);
+    }
 }

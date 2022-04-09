@@ -18,7 +18,7 @@
     <style name="DefaultNumberPickerTheme" parent="Theme.Fiddle">
         <item name="colorControlNormal">#00000000</item>
         <item name="android:textColorPrimary">#B380B7</item>
-        <item name="android:font">@font/abc_favorit</item>
+        <item name="android:fontFamily">@font/abc_favorit</item>
     </style>
     <style name="DefaultTextInputTheme" parent="Theme.Fiddle">
         <item name="colorControlNormal">#00000000</item>

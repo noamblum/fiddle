@@ -56,7 +56,7 @@
         android:fontFamily="@font/simpler_pro_regular"
         android:gravity="center"
         android:text="@string/what_would_you_like_to_fiddle_with_today"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/circle_background"
         app:layout_constraintStart_toEndOf="@+id/flower_background"
         app:layout_constraintTop_toBottomOf="@+id/logo_background" />
@@ -69,7 +69,7 @@
         android:fontFamily="@font/simpler_pro_light"
         android:gravity="center"
         android:text="@string/swipe_your_choice"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_title" />
@@ -83,7 +83,7 @@
         android:fontFamily="@font/simpler_pro_regular"
         android:gravity="center"
         android:text="@string/swipe_right_home"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flower_background" />
 
@@ -95,7 +95,7 @@
         android:fontFamily="@font/simpler_pro_regular"
         android:gravity="center"
         android:text="@string/swipe_left_home"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/swipe_right_label" />
 
