@@ -17,20 +17,16 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="task">Task</string>
-    <string name="what_would_you_like_nto_fiddle_with_today">What would you like\nto fiddle with today?</string>
+    <string name="what_would_you_like_to_fiddle_with_today">What would you like to fiddle with today?</string>
     <string name="swipe_your_choice">Swipe your choice</string>
-    <string name="swipe_right_home">Go to\nmy fids ></string>
-    <string name="swipe_left_home"><![CDATA[  Create\n< new fid]]></string>
-    <string name="right"><![CDATA[>]]></string>
-    <string name="left"><![CDATA[<]]></string>
+    <string name="swipe_right_home">Go to\n> my fids</string>
+    <string name="swipe_left_home"><![CDATA[  Create   \nnew fid <]]></string>
     <string name="fid_description">fid description…</string>
     <string name="fid_body">fid_body…</string>
     <string name="pop_up">pop up</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nice.">Nice</string>
+    <string name="nice">nice.</string>
     <string name="duration">Duration</string>
     <string name="priority">Priority</string>
     <string name="category">Category</string>
-    <string name="nice">nice.</string>
+    <string name="background_image">background image</string>
 </resources>
